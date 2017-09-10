@@ -7,17 +7,10 @@
  *	Under no license currently. So, do whatever you want with it:)
  */
 
-#include <Windows.h>
-#include <tchar.h>
 #include <stdio.h>
-#include <strsafe.h>
 #include <iostream>
-#include <vector>
-#include <map>
-#include <opencv2/core/core.hpp>
-#include <opencv2/imgproc/imgproc.hpp>
-#include <opencv2/highgui/highgui.hpp>
-#include "dirent.h"
+#include <opencv2/opencv.hpp>
+#include "dirent/dirent.h"
 
 using namespace cv;
 using namespace std;
@@ -161,7 +154,7 @@ void generateStamps(vector<Mat> & img, vector<string> & str, vector<pair<int,flo
 			dev += (tmp[i] - mean) * (tmp[i] - mean);
 		}
 		dev /= height*width;
-		stats.push_back(make_pair<int,float>(mean, dev));
+		stats.push_back(make_pair(mean, dev));
 		str.push_back(stream.str());
 	}
 }
